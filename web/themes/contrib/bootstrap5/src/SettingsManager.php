@@ -92,8 +92,8 @@ class SettingsManager {
     ];
 
     // Populating extra options for top container.
-    foreach (explode("\n", theme_get_setting('b5_top_container_config')) as $line) {
-      $values = explode("|", trim($line));
+    foreach (explode("\n", theme_get_setting('b5_top_container_config') ?? '') as $line) {
+      $values = explode("|", trim($line) ?? '');
       if (is_array($values) && (count($values) == 2)) {
         $options_top_container += [trim($values[0]) => trim($values[1])];
       }
